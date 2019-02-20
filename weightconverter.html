@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    body{
+        margin: 0;
+        margin-top: 70px;
+        background: #333333;;
+        color: white;
+    }
+    .card,#lsbinput{
+
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .btn:hover{
+
+        color: #333333;
+        background: red;
+
+    }
+     
+    
+    </style>
+    <title>Weight Converter</title>
+</head>
+<body>
+        
+    <div class="contaner">
+        <div class="row">
+            <div class="col-md-3 offset-md-4">
+                <h1 class="display-4 text-center">Weight Converter</h1>
+                
+            <form>
+                <div class="row">
+                     
+                    <div class="col-md-4 offset-md">
+                        <div class="btn-toolbar"  role="toolbar">
+                                <div class="btn-group" role="group" aria-label="First group">
+                                  <button type="button" class="btn btn-secondary" onclick="grams()">Grams</button>
+                                  <button type="button" class="btn btn-secondary" onclick="pounds()">Pounds</button>
+                                  <button type="button" class="btn btn-secondary" onclick="tons()">Tons</button>
+                                  <button type="button" class="btn btn-secondary"onclick="stone()">Stone</button>
+                                  <button type="button" class="btn btn-secondary"onclick="reset()">RST</button>
+                                  </div>
+                            </div>  
+                        </div> 
+                    </div>
+                       
+                    <div class="form-group offset">
+                        <input
+                        id="lbsinput" 
+                        type="number" 
+                        class="form-control form-control-lg" autocomplete="off" placeholder='Enter Kilograms...'>
+                    </div>
+                </form>
+                <div id="output">
+                    <div class="card bg-primary mb-2">
+                        <div class="card-block">
+                            <h4>Tonne:</h4>
+                            <div id="tonneoutput"></div>
+                        </div>
+                    </div>
+                    <div class="card bg-success mb-2">
+                        <div class="card-block">
+                            <h4>Grams:</h4>
+                            <div id="gramsoutput"></div>
+                        </div>
+                    </div>
+                    <div class="card bg-danger mb-2">
+                        <div class="card-block">
+                            <h4>Milligram:</h4>
+                            <div id="mgsoutput"></div>
+                        </div>
+                    </div>
+                    <div class="card bg-warning mb-2">
+                        <div class="card-block">
+                            <h4>Stone:</h4>
+                            <div id="stoneoutput"></div>
+                        </div>
+                    </div>
+                    <div class="card bg-info mb-2">
+                            <div class="card-block">
+                                <h4>Pound:</h4>
+                                <div id="poundoutput"></div>
+                            </div>
+                    </div>
+                    <div class="card bg-success mb-2">
+                        <div class="card-block">
+                            <h4>Ounce:</h4>
+                            <div id="ozoutput"></div>
+                        </div>
+                    </div>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("output").style.visibility="hidden";
+        
+        document.getElementById('lbsinput').addEventListener
+        ('input',function(e){
+            document.getElementById("output").style.visibility="visible";
+            var lbs = e.target.value;
+           document.getElementById('tonneoutput').innerHTML = lbs/1000;
+           document.getElementById('gramsoutput').innerHTML = lbs*1000;
+           document.getElementById('mgsoutput').innerHTML = lbs*1000000;
+           document.getElementById('stoneoutput').innerHTML = lbs*0.157473;
+           document.getElementById('poundoutput').innerHTML = lbs*2.20462;
+           document.getElementById('ozoutput').innerHTML = lbs*35.274;
+        }); 
+        
+        function grams(){
+            document.getElementById('lbsinput').placeholder="Enter In Grams..";
+            document.getElementById('lbsinput').addEventListener
+        ('input',function(i){
+            document.getElementById("output").style.visibility="visible";
+            var lbs = i.target.value;
+           document.getElementById('tonneoutput').innerHTML = lbs/1000000;
+           document.getElementById('gramsoutput').innerHTML = lbs*1;
+           document.getElementById('mgsoutput').innerHTML = lbs*1000;
+           document.getElementById('stoneoutput').innerHTML = lbs*0.000157473;
+           document.getElementById('poundoutput').innerHTML = lbs*0.00220462;
+           document.getElementById('ozoutput').innerHTML = lbs*0.035274;
+        }); 
+
+        }
+        function pounds(){
+            
+            document.getElementById('lbsinput').placeholder="Enter In Pounds..";
+            document.getElementById('lbsinput').addEventListener
+        ('input',function(a){
+            document.getElementById("output").style.visibility="visible";
+            var lbs = a.target.value;
+           document.getElementById('tonneoutput').innerHTML = lbs*0.000453592;
+           document.getElementById('gramsoutput').innerHTML = lbs*453.592;
+           document.getElementById('mgsoutput').innerHTML = lbs*453592.37;
+           document.getElementById('stoneoutput').innerHTML = lbs*0.714286;
+           document.getElementById('poundoutput').innerHTML = lbs*1;
+           document.getElementById('ozoutput').innerHTML = lbs*16;
+        }); 
+
+        }
+        function tons(){
+            document.getElementById('lbsinput').placeholder="Enter In Tons..";
+            document.getElementById('lbsinput').addEventListener
+        ('input',function(i){
+            document.getElementById("output").style.visibility="visible";
+            var lbs = i.target.value;
+           document.getElementById('tonneoutput').innerHTML = lbs*1;
+           document.getElementById('gramsoutput').innerHTML = lbs*1000000;
+           document.getElementById('mgsoutput').innerHTML = lbs*1000000000;
+           document.getElementById('stoneoutput').innerHTML = lbs*157.473;
+           document.getElementById('poundoutput').innerHTML = lbs*2204.62;
+           document.getElementById('ozoutput').innerHTML = lbs*35274;
+        }); 
+
+        }
+        function stone(){
+            document.getElementById('lbsinput').placeholder="Enter In Stones..";
+            document.getElementById('lbsinput').addEventListener
+        ('input',function(i){
+            document.getElementById("output").style.visibility="visible";
+            var lbs = i.target.value;
+           document.getElementById('tonneoutput').innerHTML = lbs*0.00635029;
+           document.getElementById('gramsoutput').innerHTML = lbs*6350.29;
+           document.getElementById('mgsoutput').innerHTML = lbs*6350290;
+           document.getElementById('stoneoutput').innerHTML = lbs*1;
+           document.getElementById('poundoutput').innerHTML = lbs*14;
+           document.getElementById('ozoutput').innerHTML = lbs*224;
+        }); 
+
+    }
+
+    function reset()
+    {
+        document.reload();
+    }
+   
+
+    </script>
+</body>
+</html>
