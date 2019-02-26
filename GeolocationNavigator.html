@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<title>Location</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	p{
+		text-align: center;
+		font-size: 50px;
+		font-family: all;
+		color: black;
+		text-shadow: 2px 3px white;
+	}
+	body{
+		background: url(map1.jpg) no-repeat center fixed;
+		margin-top:0;
+		height: 100%;
+		width: 100%;
+		opacity: 1;
+		
+	}
+	#link{
+		text-decoration: none;
+		color: red;
+	}
+
+	
+</style>
+<body onload="load()">
+
+<p>Click the button to get your coordinates.</p>
+
+<button type="button" onclick="setTimeout('getLocation()', 100)" class="btn btn-primary btn-lg btn-block">Get Coordinates</button>
+
+
+
+<p id="demo"></p>
+
+<button type="button" class="btn btn-warning btn-lg btn-block" ><p id="link"></p></button>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: "+ position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude; 
+  var str = "Click to see on map";
+  var result = str.link("https://www.google.com/maps/search/?api=1&query="+ position.coords.latitude + "," + position.coords.longitude);
+  document.getElementById("link").innerHTML = result;
+  
+}
+function load()
+{
+	confirm("Do You want to Check your Location Click on Get Coordinates");
+}
+</script>
+
+</body>
+</html>
